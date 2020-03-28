@@ -17,36 +17,38 @@ public class HelloConfig {
 
     @Bean
     @Profile({"english","default"})
+    @Primary
     public HelloWorldService helloWorldServiceEnglish(HelloWorldFactory factory){
         return factory.createHelloWorldService("en");
     }
 
     @Bean
     @Profile("spanish")
+    @Primary
     public HelloWorldService helloWorldServiceSpanish(HelloWorldFactory factory){
         return factory.createHelloWorldService("es");
     }
 
     @Bean
-    @Profile("french")
+//    @Profile("french")
     public HelloWorldService helloWorldServiceFrench(HelloWorldFactory factory){
         return factory.createHelloWorldService("fr");
     }
 
     @Bean
-    @Profile("german")
+//    @Profile("german")
     public HelloWorldService helloWorldServiceGerman(HelloWorldFactory factory){
         return factory.createHelloWorldService("de");
     }
 
-    @Bean
-    @Profile("polish")
+    @Bean(name = "polish")
+//    @Profile("polish")
     public HelloWorldService helloWorldServicePolish(HelloWorldFactory factory){
         return factory.createHelloWorldService("pl");
     }
 
     @Bean
-    @Profile("russian")
+//    @Profile("russian")
     public HelloWorldService helloWorldServiceRussian(HelloWorldFactory factory){
         return factory.createHelloWorldService("ru");
     }
