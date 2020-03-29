@@ -10,7 +10,7 @@ import org.springframework.stereotype.Controller;
 /**
  * Created by jt on 10/26/15.
  */
-@Controller
+//@Controller
 public class GreetingController {
 
     private HelloWorldService helloWorldService;
