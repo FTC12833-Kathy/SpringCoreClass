@@ -41,11 +41,11 @@ public class HelloConfig {
         return factory.createHelloWorldService("de");
     }
 
-    @Bean(name = "polish")
-//    @Profile("polish")
-    public HelloWorldService helloWorldServicePolish(HelloWorldFactory factory){
-        return factory.createHelloWorldService("pl");
-    }
+//    @Bean(name = "polish")
+////    @Profile("polish")
+//    public HelloWorldService helloWorldServicePolish(HelloWorldFactory factory){
+//        return factory.createHelloWorldService("pl");
+//    }
 
     @Bean
 //    @Profile("russian")

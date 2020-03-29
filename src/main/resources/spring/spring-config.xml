@@ -9,5 +9,9 @@
     <bean id="greetingController" class="guru.springframework.controllers.GreetingController"/>
 
     <bean id="helloWorldFactory" class="guru.springframework.services.HelloWorldFactory"/>
+
+    <bean id="polish" factory-bean="helloWorldFactory" factory-method="createHelloWorldService">
+        <constructor-arg value="pl"/>
+    </bean>
 </beans>
 
