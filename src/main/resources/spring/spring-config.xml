@@ -13,5 +13,17 @@
     <bean id="polish" factory-bean="helloWorldFactory" factory-method="createHelloWorldService">
         <constructor-arg value="pl"/>
     </bean>
+
+    <bean id="helloWorldServiceFrench" factory-bean="helloWorldFactory" factory-method="createHelloWorldService">
+        <constructor-arg value="fr"/>
+    </bean>
+
+    <bean id="helloWorldServiceGerman" factory-bean="helloWorldFactory" factory-method="createHelloWorldService">
+        <constructor-arg value="de"/>
+    </bean>
+
+    <bean id="helloWorldServiceRussian" factory-bean="helloWorldFactory" factory-method="createHelloWorldService">
+        <constructor-arg value="ru"/>
+    </bean>
 </beans>
 

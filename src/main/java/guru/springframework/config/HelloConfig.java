@@ -29,17 +29,17 @@ public class HelloConfig {
         return factory.createHelloWorldService("es");
     }
 
-    @Bean
-//    @Profile("french")
-    public HelloWorldService helloWorldServiceFrench(HelloWorldFactory factory){
-        return factory.createHelloWorldService("fr");
-    }
+//    @Bean
+////    @Profile("french")
+//    public HelloWorldService helloWorldServiceFrench(HelloWorldFactory factory){
+//        return factory.createHelloWorldService("fr");
+//    }
 
-    @Bean
-//    @Profile("german")
-    public HelloWorldService helloWorldServiceGerman(HelloWorldFactory factory){
-        return factory.createHelloWorldService("de");
-    }
+//    @Bean
+////    @Profile("german")
+//    public HelloWorldService helloWorldServiceGerman(HelloWorldFactory factory){
+//        return factory.createHelloWorldService("de");
+//    }
 
 //    @Bean(name = "polish")
 ////    @Profile("polish")
@@ -47,9 +47,9 @@ public class HelloConfig {
 //        return factory.createHelloWorldService("pl");
 //    }
 
-    @Bean
-//    @Profile("russian")
-    public HelloWorldService helloWorldServiceRussian(HelloWorldFactory factory){
-        return factory.createHelloWorldService("ru");
-    }
+//    @Bean
+////    @Profile("russian")
+//    public HelloWorldService helloWorldServiceRussian(HelloWorldFactory factory){
+//        return factory.createHelloWorldService("ru");
+//    }
 }
