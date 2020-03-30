@@ -6,10 +6,19 @@
 
     <context:component-scan base-package="guru.springframework"/>
 
-    <bean id="greetingController" class="guru.springframework.controllers.GreetingController"/>
+    <bean id="greetingController" class="guru.springframework.controllers.GreetingController">
+<!-- the default will be English or Spanish, depending on profile set in application.properties -->
+        <property name="helloWorldService" ref="helloWorldServiceDefault"/>
+<!--  Polish has a shortened referencename ; the others use the class name-->
+        <property name="helloWorldServicePolish" ref="polish"/>
+        <property name="helloWorldServiceGerman" ref="helloWorldServiceGerman"/>
+        <property name="helloWorldServiceFrench" ref="helloWorldServiceFrench"/>
+        <property name="helloWorldServiceRussian" ref="helloWorldServiceRussian"/>
+    </bean>
 
     <bean id="helloWorldFactory" class="guru.springframework.services.HelloWorldFactory"/>
 
+<!-- Polish creates an id not equal to the default   -->
     <bean id="polish" factory-bean="helloWorldFactory" factory-method="createHelloWorldService">
         <constructor-arg value="pl"/>
     </bean>
@@ -18,6 +27,7 @@
         <constructor-arg value="fr"/>
     </bean>
 
+<!--  The German setter in GreetingController uses the implementation parameter instead of the interface - not a good idea  -->
     <bean id="helloWorldServiceGerman" factory-bean="helloWorldFactory" factory-method="createHelloWorldService">
         <constructor-arg value="de"/>
     </bean>
@@ -26,14 +36,15 @@
         <constructor-arg value="ru"/>
     </bean>
 
+<!-- English -or- Spanish are picked up from the profile (set in application.properties) & Primary -->
     <beans profile="english">
-        <bean id="helloWorldServiceEnglish" factory-bean="helloWorldFactory" factory-method="createHelloWorldService" primary="true">
+        <bean id="helloWorldServiceDefault" factory-bean="helloWorldFactory" factory-method="createHelloWorldService" primary="true">
             <constructor-arg value="en"/>
         </bean>
     </beans>
 
     <beans profile="spanish">
-        <bean id="helloWorldServiceSpanish" factory-bean="helloWorldFactory" factory-method="createHelloWorldService" primary="true">
+        <bean id="helloWorldServiceDefault" factory-bean="helloWorldFactory" factory-method="createHelloWorldService" primary="true">
             <constructor-arg value="es"/>
         </bean>
     </beans>
