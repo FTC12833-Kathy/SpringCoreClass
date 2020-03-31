@@ -6,6 +6,8 @@
 
     <context:component-scan base-package="guru.springframework"/>
 
+    <import resource="classpath:spring/helloworld-config.xml"/>
+
     <bean id="greetingController" class="guru.springframework.controllers.GreetingController">
 <!-- the default will be English or Spanish, depending on profile set in application.properties -->
         <property name="helloWorldService" ref="helloWorldServiceDefault"/>
@@ -15,38 +17,5 @@
         <property name="helloWorldServiceFrench" ref="helloWorldServiceFrench"/>
         <property name="helloWorldServiceRussian" ref="helloWorldServiceRussian"/>
     </bean>
-
-    <bean id="helloWorldFactory" class="guru.springframework.services.HelloWorldFactory"/>
-
-<!-- Polish creates an id not equal to the default   -->
-    <bean id="polish" factory-bean="helloWorldFactory" factory-method="createHelloWorldService">
-        <constructor-arg value="pl"/>
-    </bean>
-
-    <bean id="helloWorldServiceFrench" factory-bean="helloWorldFactory" factory-method="createHelloWorldService">
-        <constructor-arg value="fr"/>
-    </bean>
-
-<!--  The German setter in GreetingController uses the implementation parameter instead of the interface - not a good idea  -->
-    <bean id="helloWorldServiceGerman" factory-bean="helloWorldFactory" factory-method="createHelloWorldService">
-        <constructor-arg value="de"/>
-    </bean>
-
-    <bean id="helloWorldServiceRussian" factory-bean="helloWorldFactory" factory-method="createHelloWorldService">
-        <constructor-arg value="ru"/>
-    </bean>
-
-<!-- English -or- Spanish are picked up from the profile (set in application.properties) & Primary -->
-    <beans profile="english">
-        <bean id="helloWorldServiceDefault" factory-bean="helloWorldFactory" factory-method="createHelloWorldService" primary="true">
-            <constructor-arg value="en"/>
-        </bean>
-    </beans>
-
-    <beans profile="spanish">
-        <bean id="helloWorldServiceDefault" factory-bean="helloWorldFactory" factory-method="createHelloWorldService" primary="true">
-            <constructor-arg value="es"/>
-        </bean>
-    </beans>
 </beans>
 

@@ -13,5 +13,4 @@ public class DependencyInjectionApplicationTests {
 	@Test
 	public void contextLoads() {
 	}
-
 }
